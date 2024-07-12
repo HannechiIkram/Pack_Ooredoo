@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'app/auth.service';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
-import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
@@ -18,26 +17,17 @@ export class SignupComponent implements OnInit {
   focus2: boolean = false;
   focus3: boolean = false;
 
-  constructor(
-    private authService: AuthService,
-    private fb: FormBuilder,
-    private router: Router,
-    private dialog: MatDialog,
-    private toastr: ToastrService
-  ) {
+  constructor(private authService: AuthService, private fb: FormBuilder, private router: Router) {
     this.signupForm = this.fb.group({
       name: ['', Validators.required],
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(8),
-          Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)
-        ]
-      ],
-      role: ['', Validators.required]
+      password: ['', [
+        Validators.required,
+        Validators.minLength(8), 
+        Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/) 
+      ]],
+      role: ['', Validators.required],
     });
   }
 
@@ -56,17 +46,25 @@ export class SignupComponent implements OnInit {
         password: this.signupForm.value.password
       };
       const role = this.signupForm.value.role;
-      this.authService.signup(user, role).subscribe(
-        response => {
-          console.log('Signup successful', response);
-          this.toastr.success('Signup successful!', 'Success');
+      this.authService.signup(user, role).subscribe(response => {
+        console.log('Signup successful', response);
+        Swal.fire({
+          icon: 'success',
+          title: 'Signup Successful',
+          text: 'You have successfully signed up!',
+          confirmButtonText: 'OK'
+        }).then(() => {
           this.router.navigate(['/home']); // Redirect to home page
-        },
-        error => {
-          console.error('Signup failed', error);
-          this.toastr.error('Signup failed, please try again.', 'Error');
-        }
-      );
+        });
+      }, error => {
+        console.error('Signup failed', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Signup Failed',
+          text: 'Signup failed, please try again.',
+          confirmButtonText: 'OK'
+        });
+      });
     }
   }
 }
