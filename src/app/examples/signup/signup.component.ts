@@ -11,6 +11,23 @@ import Swal from 'sweetalert2';
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ////fixing the push
+  
+  
+  
   roles: any[];
   focus: boolean = false;
   focus1: boolean = false;

@@ -18,7 +18,7 @@ describe('SignupComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
+//fixing the push 
   it('should be created', () => {
     expect(component).toBeTruthy();
   });
