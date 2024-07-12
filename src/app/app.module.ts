@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     NavbarComponent,
     FooterComponent ,
+    
   ],
   imports: [
     BrowserModule,
@@ -33,11 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
 
     HttpClientModule,
 
-
- 
-
   ],
-  providers: [AuthService ],
+  providers: [AuthService   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

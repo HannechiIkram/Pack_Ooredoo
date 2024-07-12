@@ -1,29 +1,29 @@
-
 <div class="wrapper">
   <div class="page-header" style="background-image: url('./assets/img/4.jpg');">
     <div class="filter"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
-          <div class="card mt-60 card-register">
+          <div class="card mt-4 card-register">
             <h3 class="title login-title" style="font-size: 2rem;">Sign Up</h3>
          
-            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="register-form mt-80">
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="register-form mt-3">
               <div class="form-group">
                 <label for="name">First Name</label>
-                <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus': focus===true}">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="nc-icon nc-single-02"></i>
-                    </span>
-                  </div>
-                  <input type="text" id="name" class="form-control" placeholder="Name" formControlName="name" (focus)="focus=true" (blur)="focus=false">
+                <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus': focus === true}">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="nc-icon nc-single-02"></i>
+                        </span>
+                    </div>
+                    <input type="text" id="name" class="form-control" placeholder="Name" formControlName="name"
+                        (focus)="focus = true" (blur)="focus = false">
                 </div>
-                <div *ngIf="signupForm.get('name').invalid && (signupForm.get('name').dirty || signupForm.get('name').touched)"
-         class="text-danger">
-      <small *ngIf="signupForm.get('name').errors?.required">First Name is required.</small>
-    </div>
+                <div *ngIf="signupForm.get('name').invalid && (signupForm.get('name').dirty || signupForm.get('name').touched)">
+                    <small class="error-message" *ngIf="signupForm.get('name').errors?.required">First Name is required.</small>
+                </div>
               </div>
+              
               <div class="form-group">
                 <label for="username">Name</label>
                 <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus': focus1===true}">
@@ -36,9 +36,10 @@
                 </div>
                 <div *ngIf="signupForm.get('username').invalid && (signupForm.get('username').dirty || signupForm.get('username').touched)"
          class="text-danger">
-      <small *ngIf="signupForm.get('username').errors?.required">Name is required.</small>
+      <small class="error-message" *ngIf="signupForm.get('username').errors?.required">Name is required.</small>
     </div>
               </div>
+              
               <div class="form-group">
                 <label for="email">Email</label>
                 <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus': focus2===true}">
@@ -51,11 +52,11 @@
                 </div>
                 <div *ngIf="signupForm.get('email').invalid && (signupForm.get('email').dirty || signupForm.get('email').touched)"
                 class="text-danger">
-             <small *ngIf="signupForm.get('email').errors?.required">Email is required.</small>
-             <small *ngIf="signupForm.get('email').errors?.email">Invalid email format.</small>
-
+             <small class="error-message" *ngIf="signupForm.get('email').errors?.required">Email is required.</small>
+             <small class="error-message" *ngIf="signupForm.get('email').errors?.email">Invalid email format.</small>
            </div>
               </div>
+              
               <div class="form-group">
                 <label for="password">Password</label>
                 <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus': focus3===true}">
@@ -68,12 +69,13 @@
                 </div>
                 <div *ngIf="signupForm.get('password').invalid && (signupForm.get('password').dirty || signupForm.get('password').touched)"
                 class="text-danger">
-             <small *ngIf="signupForm.get('password').errors?.required">Password is required.</small>
-             <small *ngIf="signupForm.get('password').errors?.minlength">Password must be at least 8 characters long.</small>
-             <small *ngIf="signupForm.get('password').errors?.pattern">Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.</small>
+             <small class="error-message" *ngIf="signupForm.get('password').errors?.required">Password is required.</small>
+             <small class="error-message" *ngIf="signupForm.get('password').errors?.minlength">Password must be at least 8 characters long.</small>
+             <small class="error-message" *ngIf="signupForm.get('password').errors?.pattern">Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.</small>
            </div>
            
               </div>
+              
               <div class="form-group">
                 <label for="role">Role</label>
                 <div class="input-group form-group-no-border">
@@ -88,7 +90,7 @@
                 </div>
                 <div *ngIf="signupForm.get('role').invalid && (signupForm.get('role').dirty || signupForm.get('role').touched)"
                 class="text-danger">
-             <small *ngIf="signupForm.get('role').errors?.required">Role is required.</small>
+             <small class="error-message" *ngIf="signupForm.get('role').errors?.required">Role is required.</small>
            </div>
               </div>
              
@@ -97,8 +99,6 @@
           </div>
         </div>
       </div>
-     
     </div>
   </div>
 </div>
-

@@ -1,3 +1,8 @@
 *.login-title {
     color: white;
 }
+.error-message {
+    color: rgb(255, 255, 255); /* Couleur noire pour les messages d'erreur */
+    font-size: 0.750rem; /* Taille de police plus petite pour les messages d'erreur */
+    //margin-top: 0.25rem; /* Marge légère au-dessus du message d'erreur */
+}

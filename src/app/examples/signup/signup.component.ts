@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
   focus2: boolean = false;
   focus3: boolean = false;
 
-  constructor(private authService: AuthService, private fb: FormBuilder, private router: Router) {
+  constructor(private authService: AuthService, private fb: FormBuilder, private router: Router ) {
     this.signupForm = this.fb.group({
       name: ['', Validators.required],
       username: ['', Validators.required],
