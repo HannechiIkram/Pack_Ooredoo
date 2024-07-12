@@ -1,18 +1,18 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.css']
+    styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
-
-    constructor(public location: Location, private element : ElementRef) {
+    constructor(public location: Location, private element: ElementRef, private router: Router) { // Add private router: Router
         this.sidebarVisible = false;
-    }
+      }
 
     ngOnInit() {
         const navbar: HTMLElement = this.element.nativeElement;
@@ -71,4 +71,7 @@ export class NavbarComponent implements OnInit {
             return false;
         }
     }
+
+
+
 }

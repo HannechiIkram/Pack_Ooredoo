@@ -1,3 +1,4 @@
+// src/app/services/auth.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -7,15 +8,15 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private baseUrl = 'http://localhost:8081/api/auth';
+  private baseUrl = 'http://localhost:8082/api/auth';  // Update the base URL if different
 
   constructor(private http: HttpClient) { }
 
-  login(email: string, password: string): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/login`, { email, password });
+  signup(user: any, roleName: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/signup/employee/${roleName}`, user);
   }
 
-  register(user: any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/register`, user);
+  getRoles(): Observable<any> {
+    return this.http.get('http://localhost:8082/api/role/getAllRoles');  // Update the URL if different
   }
 }

@@ -1,9 +1,10 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
     <div class="container">
         <div class="navbar-translate">
-            <a class="navbar-brand" href="https://www.creative-tim.com">
+            <a class="navbar-brand" [routerLink]="['/home']">
                 <img src="assets/img/Ooredoo.svg.png" alt="Ooredoo Logo" style="height:90px;">
             </a>
+            
             <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
                 <span class="navbar-toggler-bar"></span>
                 <span class="navbar-toggler-bar"></span>
@@ -35,10 +36,10 @@
                     <a href="#login-section" class="nav-link"><i class="nc-icon nc-book-bookmark"></i> Sign In </a>
                 </li>
                 
-                
-                <li class="nav-item" *ngIf="isHome()">
-                    <a href="https://www.creative-tim.com/product/paper-kit-2-pro-angular?ref=pk2-angular-free-local" target="_blank" class="btn btn-ooredoo-red btn-round">Dashboard</a>
+                <li class="nav-item" >
+                    <a [routerLink]="['/signup']" class="btn btn-ooredoo-red btn-round">Sign Up</a>
                 </li>
+                
                 
              <!--  <li class="nav-item" *ngIf="!isHome()">
                     <a [routerLink]="['/home']" *ngIf="!isDocumentation()" class="nav-link"><i class="nc-icon nc-layout-11"></i>Components</a>
