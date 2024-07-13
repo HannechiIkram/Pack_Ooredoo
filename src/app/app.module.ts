@@ -1,43 +1,44 @@
-import { BrowserModule } from  '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from './app.routing';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgOtpInputModule } from 'ng-otp-input';
 
+import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
-
+import { ValidationComponent } from './verification/validation.component';
+import { SigninComponent } from './signin/signin.component';
+import { AuthInterceptorService } from './Service/auth-interceptor.service';
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
-import { AuthService } from './auth.service';
-import { HttpClientModule } from '@angular/common/http';
-
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent ,
+    FooterComponent,
+    ValidationComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
-    NgbModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule,
-    ComponentsModule,
-    ExamplesModule,
-    AppRoutingModule,
-    ReactiveFormsModule, 
-
     HttpClientModule,
-
-
- 
-
+    NgbModule,
+    NgOtpInputModule,
+    AppRoutingModule,
+    ComponentsModule,
+    ExamplesModule
   ],
-  providers: [AuthService ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
