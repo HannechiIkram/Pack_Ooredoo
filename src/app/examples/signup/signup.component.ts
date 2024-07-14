@@ -47,6 +47,7 @@ export class SignupComponent implements OnInit {
       };
       const role = this.signupForm.value.role;
       this.authService.signup(user, role).subscribe(response => {
+        localStorage.setItem('email', user.email);
         console.log('Signup successful', response);
         Swal.fire({
           icon: 'success',

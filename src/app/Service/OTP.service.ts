@@ -16,18 +16,18 @@ export class OTPSERVICE {
     ) {}
     
     generateOTP(): Observable<OTP> {
-        return this.http.post<OTP>(`{apiUrl}/OTP/GenerateOTp`, {});
+        return this.http.post<OTP>(`http://localhost:8082/OTP/GenerateOTp`, {});
     }
     verifyOTP(identification: string): Observable<boolean> {
-        return this.http.post<boolean>(`apiUrl/OTP/VerifOTP/${identification}`, {})
+        return this.http.post<boolean>(`http://localhost:8082/OTP/VerifOTP/${identification}`, {})
         
     }
     getOTPbyId(){}
     resendOTP(email: string): Observable<OTP> {
-        return this.http.post<OTP>(`${this.apiUrl}/OTP/ResendOTP/${email}`, null);
+        return this.http.post<OTP>(`http://localhost:8082/OTP/ResendOTP/${email}`, null);
     }
     userstatus(email:string, result:boolean): Observable<void>{
-        return this.http.post<void>(`${this.apiUrl}/OTP/userstatus/${email}/${result}`, null);
+        return this.http.post<void>(`http://localhost:8082/OTP/userstatus/${email}/${result}`, null);
     }
 }
 
