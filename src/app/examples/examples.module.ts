@@ -8,6 +8,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AppRoutingModule } from 'app/app.routing';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -21,7 +22,7 @@ import { AppRoutingModule } from 'app/app.routing';
   declarations: [
     LandingComponent,
     SignupComponent,
-    ProfileComponent,
+    ProfileComponent
   ]
 })
 export class ExamplesModule { }

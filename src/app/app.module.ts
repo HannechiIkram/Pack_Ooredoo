@@ -15,6 +15,8 @@ import { SigninComponent } from './signin/signin.component';
 import { AuthInterceptorService } from './Service/auth-interceptor.service';
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { PasswordResetComponent } from './components/password-reset/password-reset.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import { ExamplesModule } from './examples/examples.module';
     NavbarComponent,
     FooterComponent,
     ValidationComponent,
-    SigninComponent
+    SigninComponent,ForgotPasswordComponent,PasswordResetComponent
   ],
   imports: [
     BrowserModule,

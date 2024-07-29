@@ -14,6 +14,8 @@ import { ComponentsComponent } from './components.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalComponent } from './modal/modal.component';
 import { NgbdModalContent } from './modal/modal.component';
+import { CentreDetailsComponent } from './centre-details/centre-details.component';
+import { ProductFormComponent } from './product-form/product-form.component';
 
 @NgModule({
     imports: [
@@ -32,7 +34,9 @@ import { NgbdModalContent } from './modal/modal.component';
         NucleoiconsComponent,
         NotificationComponent,
         NgbdModalComponent,
-        NgbdModalContent
+        NgbdModalContent,
+        CentreDetailsComponent,
+        ProductFormComponent
     ],
     entryComponents: [NgbdModalContent],
     exports:[ ComponentsComponent ]

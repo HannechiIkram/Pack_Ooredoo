@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { catchError, map, Observable, throwError } from 'rxjs';
 import { User } from '../models/User';
 import { signIn } from '../models/signIn';
@@ -56,8 +56,7 @@ export class AuthService {
     public google(tokenDto: TokenDto): Observable<TokenDto> {
         return this.http.post<TokenDto>(this.googleurl , tokenDto, headers);
     }
-
-   
+    
     handleOAuth2SuccessRedirect() {
         this.http.get<any>(this.oauthURL + 'success').pipe(
             catchError(error => throwError(error))
@@ -73,5 +72,29 @@ export class AuthService {
             window.location.href = response.redirectUrl;
         });
     }
+    signup(user: any, roleName: string): Observable<any> {
+      return this.http.post(`${this.baseUrl}/signup/employee/${roleName}`, user);
+    }
+  
+    getRoles(): Observable<any> {
+      return this.http.get('http://localhost:8082/api/role/getAllRoles');  // Update the URL if different
+    }
+   
+  
+  
+    forgotPassword(email: string): Observable<any> {
+      const params = new HttpParams().set('email', email);
+      return this.http.post(`${this.baseUrl}/forgot-password`, {}, { params });
+    }
+  
+    resetPassword(token: string, password: string): Observable<any> {
+      const params = new HttpParams()
+        .set('token', token)
+        .set('password', password);
+      return this.http.post(`${this.baseUrl}/reset-password`, {}, { params });
+    }
+    /*resetPassword(token: string, newPassword: string): Observable<any> {
+      return this.http.post(`${this.baseUrl}/reset-password`, { token, newPassword });
+    }*/
 }
 
