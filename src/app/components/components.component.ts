@@ -24,7 +24,7 @@ export class ComponentsComponent implements OnInit {
         const d = new Date(date.year, date.month - 1, date.day);
         return d.getDay() === 0 || d.getDay() === 6;
     }
-
+  
     isDisabled(date: NgbDateStruct, current: {month: number}) {
         return date.month !== current.month;
     }
@@ -39,7 +39,8 @@ export class ComponentsComponent implements OnInit {
             input_group[i].children[0].addEventListener('blur', function (){
                 input_group[i].classList.remove('input-group-focus');
             });
-        }
+        } 
+
     }
 
 
