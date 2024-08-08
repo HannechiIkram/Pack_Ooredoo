@@ -1,0 +1,18 @@
+<div class="container">
+    <h2>Produits</h2>
+    
+    <!-- Vérifiez s'il y a des produits à afficher -->
+    <div *ngIf="produits.length > 0; else noProduits">
+      <div *ngFor="let produit of produits" class="produit-card">
+        <!-- Assurez-vous que le chemin de l'image est correct -->
+        <img [src]="produit.photoUrl" alt="{{ produit.name }}" class="produit-image"/>
+        <h3>{{ produit.name }}</h3>
+      </div>
+    </div>
+    
+    <!-- Message lorsque aucun produit n'est disponible -->
+    <ng-template #noProduits>
+      <p>Aucun produit disponible pour ce centre.</p>
+    </ng-template>
+  </div>
+  

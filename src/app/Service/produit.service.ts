@@ -24,11 +24,14 @@ export class ProduitService {
   getProduitById(id: number): Observable<Produit> {
     return this.http.get<Produit>(`${this.baseUrl}/${id}`);
   }
+  getProduitsByCentre(centreId: number): Observable<any[]> {
+    return this.http.get<any[]>(`http://localhost:8082/api/produits/getproduit/${centreId}`);
+  }
 
   // Create a new product
-  createProduit(produit: Produit): Observable<Produit> {
-    return this.http.post<Produit>(this.baseUrl, produit, headers);
-  }
+  // createProduit(produit: Produit): Observable<Produit> {
+  //   return this.http.post<Produit>(this.baseUrl, produit, headers);
+  // }
 
   // Update an existing product
   updateProduit(id: number, produit: Produit): Observable<Produit> {
@@ -44,5 +47,15 @@ export class ProduitService {
   getProduitsByCentreId(centreId: number): Observable<Produit[]> {
     return this.http.get<Produit[]>(`${this.baseUrl}/centre/${centreId}`);
   }
- 
+
+
+
+  createProduit(centreName: string, name: string, file: File): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('centreName', centreName);
+    formData.append('name', name);
+    formData.append('file', file);
+
+    return this.http.post(`${this.baseUrl}/affecter-produit-centre`, formData);
+  }
 }

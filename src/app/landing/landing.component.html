@@ -14,24 +14,23 @@
         <div class="section text-center">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <h2 class="title mb-4 animate-title">want to check poducts?</h2>
-
-                        <h2 class="title mb-4 animate-titlee ">Choose Centre</h2>
-                        <div class="form-group">
-                            <select class="form-control form-control-lg" [(ngModel)]="selectedCentre">
-                                <option *ngFor="let centre of centres" [value]="centre.id">
-                                    {{ centre.adresse }}
-                                </option>
-                            </select>
-                        </div>
-                        
-                        <button class="btn btn-round mt-3" (click)="viewCentreDetails()">See Details</button>
+                  <div class="col-md-8">
+                    <h2 class="title mb-4 animate-title">Want to check products?</h2>
+                    <h2 class="title mb-4 animate-titlee">Choose Centre</h2>
+                    <div class="form-group">
+                      <select class="form-control form-control-lg" [(ngModel)]="selectedCentre">
+                        <option *ngFor="let centre of centres" [value]="centre.id">
+                          {{ centre.adresse }}
+                        </option>
+                      </select>
                     </div>
+                    <button (click)="showProduits()" class="btn btn-primary" [disabled]="!selectedCentre">
+                      Show Products
+                    </button>
+                  </div>
                 </div>
-            </div>
-        </div>
-    </div>
+              </div>
+              
     
 <div class="section section-dark text-center">
     <div class="container">

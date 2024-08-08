@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { LandingComponent } from './landing/landing.component';
+
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AppRoutingModule } from 'app/app.routing';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -17,10 +18,12 @@ import { AppRoutingModule } from 'app/app.routing';
     RouterModule,
     NgbModule,
     AppRoutingModule,
+    BrowserModule,
+  
     // ComponentsModule, // Only import if it's needed here
   ],
   declarations: [
-    LandingComponent,
+  
     SignupComponent,
     ProfileComponent
   ]

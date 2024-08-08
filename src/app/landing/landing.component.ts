@@ -13,8 +13,11 @@ export class LandingComponent implements OnInit {
   selectedCentre: number | null = null;
   focus: any;
   focus1: any;
+  centreId:number;
 
   constructor(private centreService: CentreService, private router: Router) { }
+
+
 
   ngOnInit() {
     this.loadCentres();
@@ -25,15 +28,12 @@ export class LandingComponent implements OnInit {
       (data: Centre[]) => this.centres = data,
       error => console.error('Error fetching centres', error)
     );
-
   }
 
-
-  viewCentreDetails(): void {
-    if (this.selectedCentre) {
-      this.router.navigate(['/centre-details', this.selectedCentre]);
-    } else {
-      alert('Please select a centre first.');
+  showProduits(): void {
+    if (this.selectedCentre !== null) {
+      sessionStorage.setItem('selectedCentreId', this.selectedCentre.toString());
+      this.router.navigate(['/detail', this.selectedCentre]);
     }
   }
 }

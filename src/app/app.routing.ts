@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ComponentsComponent } from './components/components.component';
 import { ProfileComponent } from './examples/profile/profile.component';
-import { LandingComponent } from './examples/landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { ValidationComponent } from './verification/validation.component';
 import { SigninComponent } from './signin/signin.component';
@@ -11,6 +10,10 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
 import { CentreDetailsComponent } from './components/centre-details/centre-details.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
+import { ProduitComponent } from './produit/produit.component';
+import { GetcentreComponent } from './getcentre/getcentre.component';
+import { LandingComponent } from './landing/landing.component';
+import { ShowProductsComponent } from './show-products/show-products.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -27,6 +30,10 @@ const routes: Routes = [
   { path: 'verification', component: ValidationComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'produit', component: ProduitComponent },
+
+  { path: 'detail/:id', component: ShowProductsComponent },
+
 ];
 
 @NgModule({
