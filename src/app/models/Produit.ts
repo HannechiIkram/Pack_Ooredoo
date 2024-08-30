@@ -2,6 +2,9 @@ export class Produit {
     id: number;
     photoUrl: string; 
     name: string;
+    Price: string;
+    selected?: boolean;  // Optional 'selected' property to track selection state
+
     DES_PROD: string;
     KIT_CODE: string;
     COD_GROUP: string;

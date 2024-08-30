@@ -1,20 +1,22 @@
+// src/app/models/Centre.ts
+
 export class Centre {
-    id: number;
-    Ville: string;
-    Tel: string;
-    FAX: string;
-    Email: string;
-    Cle: number;
-    Solde: string;
-    Date_Statue: Date;
-    Date_Crea: Date;
-    Code: string;
-    Responsable: string;
-    adresse: string;
-    Nom_Dist: string;
-    Journal: number;
-    CD_DIST: string;
-    Externe: string;
-    Interne: string;
-  }
-  
+  id?: number;
+  ville?: string;
+  tel?: string;
+  fax?: string;
+  email?: string;
+  cle?: number;
+  solde?: string;
+  dateStatue?: Date;
+  dateCrea?: Date;
+  code?: string;
+  responsable?: string;
+  adresse?: string;
+  nomDist?: string;
+  journal?: number;
+  cdDist?: string;
+  externe?: string;
+  interne?: string;
+  // Include other properties as necessary
+}

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Centre } from 'app/models/Centre';
 import { CentreService } from 'app/Service/centre.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-landing',
@@ -26,9 +27,35 @@ export class LandingComponent implements OnInit {
   loadCentres(): void {
     this.centreService.getAllCentres().subscribe(
       (data: Centre[]) => this.centres = data,
-      error => console.error('Error fetching centres', error)
+      error => {
+        console.error('Sign in failed', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Error fetching centres.',
+        });
+      }
     );
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   showProduits(): void {
     if (this.selectedCentre !== null) {

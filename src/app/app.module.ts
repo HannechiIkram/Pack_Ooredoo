@@ -21,6 +21,7 @@ import { ProduitComponent } from './produit/produit.component';
 import { ShowProductsComponent } from './show-products/show-products.component';
 import { GetcentreComponent } from './getcentre/getcentre.component';
 import { LandingComponent } from './landing/landing.component';
+import { ShowKitPacksComponent } from './show-kitpacks/show-kitpacks.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,8 @@ import { LandingComponent } from './landing/landing.component';
     NavbarComponent,
     FooterComponent,
     ValidationComponent,
-    LandingComponent,
-    SigninComponent,ForgotPasswordComponent,PasswordResetComponent, ProduitComponent, ShowProductsComponent, GetcentreComponent
+    LandingComponent,ShowKitPacksComponent ,
+    SigninComponent,ForgotPasswordComponent,PasswordResetComponent, ProduitComponent, ShowProductsComponent, GetcentreComponent,
   ],
   imports: [
     BrowserModule,

@@ -73,7 +73,7 @@ export class AuthService {
         });
     }
     signup(user: any, roleName: string): Observable<any> {
-      return this.http.post(`${this.baseUrl}/signup/employee/${roleName}`, user);
+      return this.http.post(`http://localhost:8082/api/auth/signup/employee/${roleName}`, user);
     }
   
     getRoles(): Observable<any> {

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Produit } from 'app/models/Produit';
+import { KitPack } from 'app/models/KitPack';
 
 const headers = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
@@ -19,13 +20,28 @@ export class ProduitService {
   getAllProduits(): Observable<Produit[]> {
     return this.http.get<Produit[]>(this.baseUrl);
   }
+ // Fetch products by centre ID
+ getProductsByCentreId(centreId: number): Observable<any> {
+  return this.http.get(`${this.baseUrl}/centre/${centreId}`);
+}
 
-  // Get product by ID
-  getProduitById(id: number): Observable<Produit> {
-    return this.http.get<Produit>(`${this.baseUrl}/${id}`);
-  }
-  getProduitsByCentre(centreId: number): Observable<any[]> {
-    return this.http.get<any[]>(`http://localhost:8082/api/produits/getproduit/${centreId}`);
+// Fetch a product by ID
+getProductById(id: number): Observable<any> {
+  return this.http.get(`${this.baseUrl}/${id}`);
+}
+
+// Upload product with image
+uploadProduct(name: string, file: File): Observable<any> {
+  const formData: FormData = new FormData();
+  formData.append('name', name);
+  formData.append('photo', file);
+
+  return this.http.post(`${this.baseUrl}/upload`, formData, {
+    headers: new HttpHeaders({
+      'enctype': 'multipart/form-data'
+    })
+  });
+
   }
 
   // Create a new product
@@ -47,8 +63,16 @@ export class ProduitService {
   getProduitsByCentreId(centreId: number): Observable<Produit[]> {
     return this.http.get<Produit[]>(`${this.baseUrl}/centre/${centreId}`);
   }
+  createKitPack(kitPack: KitPack): Observable<KitPack> {
+    return this.http.post<KitPack>(this.baseUrl, kitPack, headers);
+}
 
-
+  // Fetch product image
+  getProductImage(filename: string): Observable<Blob> {
+    return this.http.get(`${this.baseUrl}/images/${filename}`, {
+      responseType: 'blob',
+    });
+  }
 
   createProduit(centreName: string, name: string, file: File): Observable<any> {
     const formData: FormData = new FormData();

@@ -14,11 +14,13 @@ import { ProduitComponent } from './produit/produit.component';
 import { GetcentreComponent } from './getcentre/getcentre.component';
 import { LandingComponent } from './landing/landing.component';
 import { ShowProductsComponent } from './show-products/show-products.component';
+import { ShowKitPacksComponent } from './show-kitpacks/show-kitpacks.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: ComponentsComponent },
   { path: 'add-product', component: ProductFormComponent },
+  { path: 'kitpacks', component: ShowKitPacksComponent },
 
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password', component: PasswordResetComponent },
